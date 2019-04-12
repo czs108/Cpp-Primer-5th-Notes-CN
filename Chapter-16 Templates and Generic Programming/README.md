@@ -659,6 +659,9 @@ s2 = std::move(s1);     // ok: but after the assigment s1 has indeterminate valu
 某些函数需要将其一个或多个实参连同类型不变地转发给其他函数。在这种情况下，需要保持被转发实参的所有性质，包括实参的`const`属性以及左值/右值属性。
 
 ```c++
+// template that takes a callable and two parameters
+// and calls the given callable with the parameters ''flipped''
+// flip1 is an incomplete implementation: top-level const and references are lost
 template <typename F, typename T1, typename T2>
 void flip1(F f, T1 t1, T2 t2)
 {
@@ -672,7 +675,10 @@ void f(int v1, int &v2)   // note v2 is a reference
 
 f(42, i);   // f changes its argument i
 flip1(f, j, 42);    // f called through flip1 leaves j unchanged
+                    // void flip1(void(*fcn)(int, int&), int t1, int t2)
 ```
+
+上例中，*j*被传递给`flip1`的参数*t1*，该参数是一个普通（非引用）类型`int`，而非`int&`，因此`flip1(f, j, 42)`调用会被实例化为`void flip1(void(*fcn)(int, int&), int t1, int t2)`。*j*的值被拷贝至*t1*中，`f`中的引用参数被绑定至*t1*，而非*j*，因此*j*不会被修改。
 
 将函数参数定义为指向模板类型参数的右值引用（形如`T&&`），通过引用折叠，可以保持翻转实参的左值/右值属性。并且引用参数（无论是左值还是右值）可以保持实参的`const`属性，因为在引用类型中的`const`是底层的。
 
@@ -684,7 +690,9 @@ void flip2(F f, T1 &&t1, T2 &&t2)
 }
 ```
 
-函数参数与其他变量一样，都是左值表达式。所以即使是指向模板类型的右值引用参数也只能传递给接受左值引用的函数，不能传递给接受右值引用的函数。
+对于修改后的版本，若调用`flip2(f, j, 42)`，会传递给参数*t1*一个左值*j*，但此时推断出的*T1*类型为`int&`，*t1*的类型会被折叠为`int&`，从而解决了`flip1`的错误。
+
+但`flip2`只能用于接受左值引用的函数，不能用于接受右值引用的函数。函数参数与其他变量一样，都是左值表达式。所以即使是指向模板类型的右值引用参数也只能传递给接受左值引用的函数，不能传递给接受右值引用的函数。
 
 ```c++
 void g(int &&i, int& j)
@@ -693,7 +701,7 @@ void g(int &&i, int& j)
 }
 
 // error: can't initialize int&& from an lvalue
-flip2(g, i, 42);
+flip2(g, i, 42);  // flip2 passes an lvalue to g’s rvalue reference parameter
 ```
 
 C++11在头文件*utility*中定义了`forward`。与`move`不同，`forward`必须通过显式模板实参调用，返回该显式实参类型的右值引用。即`forward<T>`返回类型`T&&`。
@@ -707,7 +715,14 @@ intermediary(Type &&arg)
     finalFcn(std::forward<Type>(arg));
     // ...
 }
+```
 
+- 如果实参是一个右值，则*Type*是一个普通（非引用）类型，`forward<Type>`返回类型`Type&&`。
+- 如果实参是一个左值，则通过引用折叠，*Type*也是一个左值引用类型，`forward<Type>`返回类型`Type&& &`，对返回类型进行引用折叠，得到`Type&`。
+
+使用`forward`编写完善的转发函数。
+
+```c++
 template <typename F, typename T1, typename T2>
 void flip(F f, T1 &&t1, T2 &&t2)
 {
