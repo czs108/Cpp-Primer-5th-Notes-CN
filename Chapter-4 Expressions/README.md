@@ -217,4 +217,3 @@ cast-name<type>(expression);
 type (expression);    // function-style cast notation
 (type) expression;    // C-language-style cast notation
 ```
-

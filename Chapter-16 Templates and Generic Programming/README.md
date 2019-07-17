@@ -968,4 +968,3 @@ fs.Bar();    // instantiates Foo<string>::Bar()
 Foo<int> fi;    // instantiates Foo<int>::Foo()
 fi.Bar();    // uses our specialization of Foo<int>::Bar()
 ```
-

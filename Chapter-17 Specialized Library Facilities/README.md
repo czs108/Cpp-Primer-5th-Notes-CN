@@ -710,4 +710,3 @@ seekp(offset, from);    // offset has type off_type
 参数*new_position*和*offset*的类型分别是`pos_type`和`off_type`，这两个类型都是机器相关的，定义在头文件*istream*和*ostream*中。`pos_type`表示文件位置，而`off_type`表示距离当前位置的偏移量，偏移量可以是正数也可以是负数。
 
 `tellg`和`tellp`函数返回一个`pos_type`值，表示流的当前位置。
-

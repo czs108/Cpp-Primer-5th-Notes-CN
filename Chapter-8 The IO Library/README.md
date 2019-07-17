@@ -216,4 +216,3 @@ for (const auto &entry : people)
             << " invalid number(s) " << badNums.str() << endl;
 }
 ```
-

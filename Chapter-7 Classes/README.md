@@ -729,4 +729,3 @@ private:
     static const char bkground;
 };
 ```
-

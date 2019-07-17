@@ -470,4 +470,3 @@ stack<string, vector<string>> str_stk2(svec);
 ![9-21](Image/9-21.png)
 
 `queue`使用先进先出（first-in，first-out，FIFO）的存储和访问策略。进入队列的对象被放置到队尾，而离开队列的对象则从队首删除。
-

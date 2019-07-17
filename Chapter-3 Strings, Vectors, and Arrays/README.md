@@ -391,4 +391,3 @@ for (auto p = ia; p != ia + 3; ++p)
     cout << endl;
 }
 ```
-
