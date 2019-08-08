@@ -4,7 +4,7 @@
 
 顺序容器类型：
 
-![9-1](Image/9-1.png)
+![9-1](Images/9-1.png)
 
 |      类型      |                             特性                             |
 | :------------: | :----------------------------------------------------------: |
@@ -32,7 +32,7 @@
 
 每个容器都定义在一个头文件中，文件名与类型名相同。容器均为模板类型。
 
-![9-2](Image/9-2.png)
+![9-2](Images/9-2.png)
 
 ### 迭代器（Iterators）
 
@@ -80,7 +80,7 @@ auto it4 = a.crbegin();  // list<string>::const_reverse_iterator
 
 容器定义和初始化方式：
 
-![9-3](Image/9-3.png)
+![9-3](Images/9-3.png)
 
 将一个容器初始化为另一个容器的拷贝时，两个容器的容器类型和元素类型都必须相同。
 
@@ -122,7 +122,7 @@ array<int>::size_type j;       // error: array<int> is not a type
 
 容器赋值操作：
 
-![9-4](Image/9-4.png)
+![9-4](Images/9-4.png)
 
 赋值运算符两侧的运算对象必须类型相同。`assign`允许用不同但相容的类型赋值，或者用容器的子序列赋值。
 
@@ -220,7 +220,7 @@ v1 == v2    // false; v2 has fewer elements than v1
 
 除`array`外，所有标准库容器都提供灵活的内存管理，在运行时可以动态添加或删除元素。
 
-![9-5](Image/9-5.png)
+![9-5](Images/9-5.png)
 
 `push_back`将一个元素追加到容器尾部，`push_front`将元素插入容器头部。
 
@@ -278,7 +278,7 @@ c.push_back(Sales_data("978-0590353403", 25, 15.99));
 
 顺序容器的元素访问操作：
 
-![9-6](Image/9-6.png)
+![9-6](Images/9-6.png)
 
 在容器中访问元素的成员函数都返回引用类型。如果容器是`const`对象，则返回`const`引用，否则返回普通引用。
 
@@ -294,7 +294,7 @@ cout << svec.at(0);   // throws an out_of_range exception
 
 顺序容器的元素删除操作：
 
-![9-7](Image/9-7.png)
+![9-7](Images/9-7.png)
 
 删除`deque`中除首尾位置之外的任何元素都会使所有迭代器、引用和指针失效。删除`vector`或`string`的元素后，指向删除点之后位置的迭代器、引用和指针也都会失效。
 
@@ -316,17 +316,17 @@ elem1 = slist.erase(elem1, elem2);  // after the call elem1 == elem2
 
 在`forward_list`中添加或删除元素的操作是通过改变给定元素之后的元素来完成的。
 
-![9-8](Image/9-8.png)
+![9-8](Images/9-8.png)
 
 `forward_list`的插入和删除操作：
 
-![9-9](Image/9-9.png)
+![9-9](Images/9-9.png)
 
 ### 改变容器大小（Resizing a Container）
 
 顺序容器的大小操作：
 
-![9-10](Image/9-10.png)
+![9-10](Images/9-10.png)
 
 `resize`函数接受一个可选的元素值参数，用来初始化添加到容器中的元素，否则新元素进行值初始化。如果容器保存的是类类型元素，且`resize`向容器添加新元素，则必须提供初始值，或元素类型提供默认构造函数。
 
@@ -364,11 +364,11 @@ while (begin != v.end())
 
 容器大小管理操作：
 
-![9-11](Image/9-11.png)
+![9-11](Images/9-11.png)
 
 `capacity`函数返回容器在不扩充内存空间的情况下最多可以容纳的元素数量。`reserve`函数告知容器应该准备保存多少元素，它并不改变容器中元素的数量，仅影响容器预先分配的内存空间大小。
 
-![9-12](Image/9-12.png)
+![9-12](Images/9-12.png)
 
 只有当需要的内存空间超过当前容量时，`reserve`才会真正改变容器容量，分配不小于需求大小的内存空间。当需求大小小于当前容量时，`reserve`并不会退回内存空间。因此在调用`reserve`之后，`capacity`会大于或等于传递给`reserve`的参数。
 
@@ -380,13 +380,13 @@ while (begin != v.end())
 
 构造`string`的其他方法：
 
-![9-13](Image/9-13.png)
+![9-13](Images/9-13.png)
 
 从另一个`string`对象拷贝字符构造`string`时，如果提供的拷贝开始位置（可选）大于给定`string`的大小，则构造函数会抛出`out_of_range`异常。
 
 子字符串操作：
 
-![9-14](Image/9-14.png)
+![9-14](Images/9-14.png)
 
 如果传递给`substr`函数的开始位置超过`string`的大小，则函数会抛出`out_of_range`异常。
 
@@ -394,7 +394,7 @@ while (begin != v.end())
 
 修改`string`的操作：
 
-![9-15](Image/9-15.png)
+![9-15](Images/9-15.png)
 
 `append`函数是在`string`末尾进行插入操作的简写形式。
 
@@ -422,7 +422,7 @@ s2.replace(11, 3, "5th");   // equivalent: s == s2
 
 `string`搜索操作：
 
-![9-16](Image/9-16.png)
+![9-16](Images/9-16.png)
 
 ### compare函数（The compare Functions）
 
@@ -430,13 +430,13 @@ s2.replace(11, 3, "5th");   // equivalent: s == s2
 
 `compare`函数的几种参数形式：
 
-![9-17](Image/9-17.png)
+![9-17](Images/9-17.png)
 
 ### 数值转换（Numeric Conversions）
 
 C++11增加了`string`和数值之间的转换函数：
 
-![9-18](Image/9-18.png)
+![9-18](Images/9-18.png)
 
 进行数值转换时，`string`参数的第一个非空白字符必须是符号（`+`或`-`）或数字。它可以以`0x`或`0X`开头来表示十六进制数。对于转换目标是浮点值的函数，`string`参数也可以以小数点开头，并可以包含`e`或`E`来表示指数部分。 
 
@@ -448,7 +448,7 @@ C++11增加了`string`和数值之间的转换函数：
 
 所有容器适配器都支持的操作和类型：
 
-![9-19](Image/9-19.png)
+![9-19](Images/9-19.png)
 
 默认情况下，`stack`和`queue`是基于`deque`实现的，`priority_queue`是基于`vector`实现的。可以在创建适配器时将一个命名的顺序容器作为第二个类型参数，来重载默认容器类型。
 
@@ -463,10 +463,10 @@ stack<string, vector<string>> str_stk2(svec);
 
 栈适配器`stack`定义在头文件*stack*中，其支持的操作如下：
 
-![9-20](Image/9-20.png)
+![9-20](Images/9-20.png)
 
 队列适配器`queue`和`priority_queue`定义在头文件*queue*中，其支持的操作如下：
 
-![9-21](Image/9-21.png)
+![9-21](Images/9-21.png)
 
 `queue`使用先进先出（first-in，first-out，FIFO）的存储和访问策略。进入队列的对象被放置到队尾，而离开队列的对象则从队首删除。

@@ -245,7 +245,7 @@ bool Base::equal(const Base &rhs) const
 
 `type_info`类的精确定义会根据编译器的不同而略有差异。但是C++规定`type_info`必须定义在头文件*typeinfo*中，并且至少提供以下操作：
 
-![19-1](Image/19-1.png)
+![19-1](Images/19-1.png)
 
 `type_info`类一般是作为一个基类出现，所以它还应该提供一个公有虚析构函数。当编译器希望提供额外的类型信息时，通常在`type_info`的派生类中完成。
 

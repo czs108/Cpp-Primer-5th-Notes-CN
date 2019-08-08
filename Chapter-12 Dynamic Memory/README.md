@@ -19,11 +19,11 @@ shared_ptr<list<int>> p2;   // shared_ptr that can point at a list of ints
 
 `shared_ptr`和`unique_ptr`都支持的操作：
 
-![12-1](Image/12-1.png)
+![12-1](Images/12-1.png)
 
 `shared_ptr`独有的操作：
 
-![12-2](Image/12-2.png)
+![12-2](Images/12-2.png)
 
 `make_shared`函数（定义在头文件*memory*中）在动态内存中分配一个对象并初始化它，返回指向此对象的`shared_ptr`。
 
@@ -123,7 +123,7 @@ shared_ptr<int> p2(new int(1024));     // ok: uses direct initialization
 
 默认情况下，用来初始化智能指针的内置指针必须指向动态内存，因为智能指针默认使用`delete`释放它所管理的对象。如果要将智能指针绑定到一个指向其他类型资源的指针上，就必须提供自定义操作来代替`delete`。
 
-![12-3](Image/12-3.png)
+![12-3](Images/12-3.png)
 
 不要混合使用内置指针和智能指针。当将`shared_ptr`绑定到内置指针后，资源管理就应该交由`shared_ptr`负责。不应该再使用内置指针访问`shared_ptr`指向的内存。
 
@@ -230,7 +230,7 @@ unique_ptr<int> p2 = make_unique<int>(42);
 
 `unique_ptr`操作：
 
-![12-4](Image/12-4.png)
+![12-4](Images/12-4.png)
 
 `release`函数返回`unique_ptr`当前保存的指针并将其置为空。
 
@@ -285,7 +285,7 @@ void f(destination &d /* other needed parameters */)
 
 `weak_ptr`是一种不控制所指向对象生存期的智能指针，它指向一个由`shared_ptr`管理的对象。将`weak_ptr`绑定到`shared_ptr`不会改变`shared_ptr`的引用计数。如果`shared_ptr`被销毁，即使有`weak_ptr`指向对象，对象仍然有可能被释放。
 
-![12-5](Image/12-5.png)
+![12-5](Images/12-5.png)
 
 创建一个`weak_ptr`时，需要使用`shared_ptr`来初始化它。
 
@@ -356,7 +356,7 @@ up.release();   // automatically uses delete[] to destroy its pointer
 
 指向数组的`unique_ptr`：
 
-![12-6](Image/12-6.png)
+![12-6](Images/12-6.png)
 
 与`unique_ptr`不同，`shared_ptr`不直接支持动态数组管理。如果想用`shared_ptr`管理动态数组，必须提供自定义的删除器。
 
@@ -385,7 +385,7 @@ auto const p = alloc.allocate(n);   // allocate n unconstructed strings
 
 标准库`allocator`类及其算法：
 
-![12-7](Image/12-7.png)
+![12-7](Images/12-7.png)
 
 `allocator`分配的内存是未构造的，程序需要在此内存中构造对象。新标准库的`construct`函数接受一个指针和零或多个额外参数，在给定位置构造一个元素。额外参数用来初始化构造的对象，必须与对象类型相匹配。
 
@@ -413,6 +413,6 @@ alloc.deallocate(p, n);
 
 `allocator`算法：
 
-![12-8](Image/12-8.png)
+![12-8](Images/12-8.png)
 
 传递给`uninitialized_copy`的目的位置迭代器必须指向未构造的内存，它直接在给定位置构造元素。返回（递增后的）目的位置迭代器。

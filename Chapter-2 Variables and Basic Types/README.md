@@ -6,7 +6,7 @@
 
 算数类型分为两类：整型（integral type）、浮点型（floating-point type）。 
 
-![2-1](Image/2-1.png)
+![2-1](Images/2-1.png)
 
 `bool`类型的取值是`true`或`false`。
 
@@ -113,7 +113,7 @@ std::cout << '\115' << '\n';    // prints M followed by a newline
 
 添加特定的前缀和后缀，可以改变整型、浮点型和字符型字面值的默认类型。 
 
-![2-2](Image/2-2.png)
+![2-2](Images/2-2.png)
 
 使用一个长整型字面值时，最好使用大写字母`L`进行标记，小写字母`l`和数字`1`容易混淆。
 
@@ -164,7 +164,7 @@ int j;      // declares and defines j
 
 C++的标识符由字母、数字和下划线组成，其中必须以字母或下划线开头。标识符的长度没有限制，但是对大小写字母敏感。C++为标准库保留了一些名字。用户自定义的标识符不能连续出现两个下划线，也不能以下划线紧连大写字母开头。此外，定义在函数体外的标识符不能以下划线开头。
 
-![2-3](Image/2-3.png)
+![2-3](Images/2-3.png)
 
 ### 名字的作用域（Scope of a Name）
 
@@ -288,7 +288,7 @@ int *pi = &ival;    // pi points to an int
 int **ppi = &pi;    // ppi points to a pointer to an int
 ```
 
-![2-4](Image/2-4.png)
+![2-4](Images/2-4.png)
 
 指向指针的引用（References to Pointers）：
 

@@ -13,7 +13,7 @@
 
 允许重复保存关键字的容器名字都包含单词`multi`；无序保存元素的容器名字都以单词`unordered`开头。
 
-![11-1](Image/11-1.png)
+![11-1](Images/11-1.png)
 
 `map`和`multimap`类型定义在头文件*map*中；`set`和`multiset`类型定义在头文件*set*中；无序容器定义在头文件*unordered_map*和*unordered_set*中。
 
@@ -91,7 +91,7 @@ pair<string, vector<int>> line;   // holds string and vector<int>
 
 `pair`支持的操作：
 
-![11-2](Image/11-2.png)
+![11-2](Images/11-2.png)
 
 在C++11中，如果函数需要返回`pair`，可以对返回值进行列表初始化。早期C++版本中必须显式构造返回值。
 
@@ -112,7 +112,7 @@ pair<string, int> process(vector<string> &v)
 
 关联容器定义了类型别名来表示容器关键字和值的类型：
 
-![11-3](Image/11-3.png)
+![11-3](Images/11-3.png)
 
 对于`set`类型，`key_type`和`value_type`是一样的。`set`中保存的值就是关键字。对于`map`类型，元素是关键字-值对。即每个元素是一个`pair`对象，包含一个关键字和一个关联的值。由于元素关键字不能改变，因此`pair`的关键字部分是`const`的。另外，只有`map`类型（`unordered_map`、`unordered_multimap`、`multimap`、`map`）才定义了`mapped_type`。
 
@@ -170,7 +170,7 @@ word_count.insert(map<string, size_t>::value_type(word, 1));
 
 关联容器的`insert`操作：
 
-![11-4](Image/11-4.png)
+![11-4](Images/11-4.png)
 
 `insert`或`emplace`的返回值依赖于容器类型和参数：
 
@@ -181,7 +181,7 @@ word_count.insert(map<string, size_t>::value_type(word, 1));
 
 关联容器的删除操作：
 
-![11-5](Image/11-5.png)
+![11-5](Images/11-5.png)
 
 与顺序容器不同，关联容器提供了一个额外的`erase`操作。它接受一个`key_type`参数，删除所有匹配给定关键字的元素（如果存在），返回实际删除的元素数量。对于不包含重复关键字的容器，`erase`的返回值总是1或0。若返回值为0，则表示想要删除的元素并不在容器中。
 
@@ -193,7 +193,7 @@ word_count.insert(map<string, size_t>::value_type(word, 1));
 
 `map`和`unordered_map`的下标操作：
 
-![11-6](Image/11-6.png)
+![11-6](Images/11-6.png)
 
 对`map`进行下标操作时，返回的是`mapped_type`类型的对象；解引用`map`迭代器时，返回的是`value_type`类型的对象。
 
@@ -201,7 +201,7 @@ word_count.insert(map<string, size_t>::value_type(word, 1));
 
 关联容器的查找操作：
 
-![11-7](Image/11-7.png)
+![11-7](Images/11-7.png)
 
 如果`multimap`或`multiset`中有多个元素具有相同关键字，则这些元素在容器中会相邻存储。
 
@@ -257,6 +257,6 @@ for (auto pos = authors.equal_range(search_item);
 
 无序容器管理操作：
 
-![11-8](Image/11-8.png)
+![11-8](Images/11-8.png)
 
 默认情况下，无序容器使用关键字类型的`==`运算符比较元素，还使用一个`hash<key_type>`类型的对象来生成每个元素的哈希值。标准库为内置类型和一些标准库类型提供了hash模板。因此可以直接定义关键字是这些类型的无序容器，而不能直接定义关键字类型为自定义类类型的无序容器，必须先提供对应的hash模板版本。

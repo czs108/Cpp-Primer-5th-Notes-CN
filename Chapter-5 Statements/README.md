@@ -67,7 +67,7 @@ else
 
 `switch`语句的形式：
 
-![5-1](Image/5-1.png)
+![5-1](Images/5-1.png)
 
 `switch`语句先对括号里的表达式求值，值转换成整数类型后再与每个`case`标签（case label）的值进行比较。如果表达式的值和某个`case`标签匹配，程序从该标签之后的第一条语句开始执行，直到到达`switch`的结尾或者遇到`break`语句为止。`case`标签必须是整型常量表达式。
 
@@ -254,13 +254,13 @@ catch (exception-declaration)
 
 - 头文件*stdexcept*定义了几种常用的异常类。
 
-  ![5-2](Image/5-2.png)
+  ![5-2](Images/5-2.png)
 
 - 头文件*new*定义了`bad_alloc`异常类。
 - 头文件*type_info*定义了`bad_cast`异常类。
 
 标准库异常类的继承体系： 
 
-![5-3](Image/5-3.png)
+![5-3](Images/5-3.png)
 
 只能以默认初始化的方式初始化`exception`、`bad_alloc`和`bad_cast`对象，不允许为这些对象提供初始值。其他异常类的对象在初始化时必须提供一个`string`或一个C风格字符串，通常表示异常信息。`what`成员函数可以返回该字符串的`string`副本。
