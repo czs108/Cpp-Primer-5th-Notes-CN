@@ -118,7 +118,7 @@ void elimDups(vector<string> &words)
 
 `unique`函数重排输入序列，消除相邻的重复项，返回指向不重复值范围末尾的迭代器。
 
-![10-1](Image/10-1.png)
+![10-1](Images/10-1.png)
 
 ## 定制操作（Customizing Operations）
 
@@ -215,7 +215,7 @@ for_each(words.begin(), words.end(),
 
 `lambda`捕获列表形式：
 
-![10-2](Image/10-2.png)
+![10-2](Images/10-2.png)
 
 默认情况下，对于值方式捕获的变量，`lambda`不能修改其值。如果希望修改，就必须在参数列表后添加关键字`mutable`。
 
@@ -293,7 +293,7 @@ for_each(words.begin(), words.end(), bind(print, ref(os), _1, ' '));
 
 插入迭代器操作：
 
-![10-3](Image/10-3.png)
+![10-3](Images/10-3.png)
 
 插入器有三种类型，区别在于元素插入的位置：
 
@@ -343,7 +343,7 @@ vector<int> vec(in_iter, eof);      // construct vec from an iterator range
 
 `istream_iterator`操作：
 
-![10-4](Image/10-4.png)
+![10-4](Images/10-4.png)
 
 将`istream_iterator`绑定到一个流时，标准库并不保证迭代器立即从流读取数据。但可以保证在第一次解引用迭代器之前，从流中读取数据的操作已经完成了。
 
@@ -351,7 +351,7 @@ vector<int> vec(in_iter, eof);      // construct vec from an iterator range
 
 `ostream_iterator`操作：
 
-![10-5](Image/10-5.png)
+![10-5](Images/10-5.png)
 
 `*`和`++`运算符实际上不会对`ostream_iterator`对象做任何操作。但是建议代码写法与其他迭代器保持一致。
 
@@ -374,7 +374,7 @@ sort(vec.begin(), vec.end());   // sorts vec in "normal" order
 sort(vec.rbegin(), vec.rend());
 ```
 
-![10-6](Image/10-6.png)
+![10-6](Images/10-6.png)
 
 不能从`forward_list`或流迭代器创建反向迭代器。
 
@@ -389,7 +389,7 @@ cout << string(line.crbegin(), rcomma) << endl;
 cout << string(rcomma.base(), line.cend()) << endl;
 ```
 
-![10-7](Image/10-7.png)
+![10-7](Images/10-7.png)
 
 反向迭代器的目的是表示元素范围，而这些范围是不对称的。用普通迭代器初始化反向迭代器，或者给反向迭代器赋值时，结果迭代器与原迭代器指向的并不是相同元素。
 
@@ -397,7 +397,7 @@ cout << string(rcomma.base(), line.cend()) << endl;
 
 算法要求的迭代器操作可以分为5个迭代器类别（iterator category）：
 
-![10-8](Image/10-8.png)
+![10-8](Images/10-8.png)
 
 ### 5类迭代器（The Five Iterator Categories）
 
@@ -469,10 +469,10 @@ reverse_copy(beg, end, dest);   // copy elements in reverse order into dest
 
 `list`和`forward_list`成员函数版本的算法：
 
-![10-9](Image/10-9.png)
+![10-9](Images/10-9.png)
 
 `list`和`forward_list`的`splice`函数可以进行容器合并，其参数如下：
 
-![10-10](Image/10-10.png)
+![10-10](Images/10-10.png)
 
 链表特有版本的算法操作会改变底层容器。

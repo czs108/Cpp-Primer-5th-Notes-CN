@@ -219,7 +219,7 @@ public:
 
 标准库异常类的继承体系：
 
-![18-1](Image/18-1.png)
+![18-1](Images/18-1.png)
 
 `exception`类型只定义了拷贝构造函数、拷贝赋值运算符、一个虚析构函数和一个名为`what`的虚成员。`what`函数返回一个`const char*`，指向一个以`NULL`结尾的字符数组，并且不会抛出异常。
 
@@ -590,7 +590,7 @@ class Panda : public Bear, public Endangered { /* ... */ };
 
 多重继承关系中，派生类对象包含每个基类的子对象。
 
-![18-2](Image/18-2.png)
+![18-2](Images/18-2.png)
 
 构造一个多重继承的派生类对象将同时构造并初始化它的所有基类子对象。
 
@@ -694,7 +694,7 @@ class Bear : virtual public ZooAnimal { /* ... */ };
 class Panda : public Bear, public Raccoon, public Endangered { /* ... */ };
 ```
 
-![18-3](Image/18-3.png)
+![18-3](Images/18-3.png)
 
 不论基类是不是虚基类，派生类对象都能被可访问基类的指针或引用操作。
 

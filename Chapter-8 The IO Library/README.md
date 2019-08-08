@@ -15,7 +15,7 @@
 
 头文件*iostream*定义了用于读写流的基本类型，*fstream*定义了读写命名文件的类型，*sstream*定义了读写内存中`string`对象的类型。
 
-![8-1](Image/8-1.png)
+![8-1](Images/8-1.png)
 
 宽字符版本的IO类型和函数的名字以`w`开始，如`wcin`、`wcout`和`wcerr`分别对应`cin`、`cout`和`cerr`。它们与其对应的普通`char`版本都定义在同一个头文件中，如头文件*fstream*定义了`ifstream`和`wifstream`类型。
 
@@ -38,7 +38,7 @@ out2 = print(out2);     // error: cannot copy stream objects
 
 IO库条件状态：
 
-![8-2](Image/8-2.png)
+![8-2](Images/8-2.png)
 
 `badbit`表示系统级错误，如不可恢复的读写错误。通常情况下，一旦`badbit`被置位，流就无法继续使用了。在发生可恢复错误后，`failbit`会被置位，如期望读取数值却读出一个字符。如果到达文件结束位置，`eofbit`和`failbit`都会被置位。如果流未发生错误，则`goodbit`的值为0。如果`badbit`、`failbit`和`eofbit`任何一个被置位，检测流状态的条件都会失败。
 
@@ -112,7 +112,7 @@ cin.tie(old_tie);   // reestablish normal tie between cin and cout
 
 头文件*fstream*定义了三个类型来支持文件IO：`ifstream`从给定文件读取数据，`ofstream`向指定文件写入数据，`fstream`可以同时读写指定文件。
 
-![8-3](Image/8-3.png)
+![8-3](Images/8-3.png)
 
 ### 使用文件流对象（Using File Stream Objects）
 
@@ -139,7 +139,7 @@ ofstream out;   // output file stream that is not associated with any file
 
 每个流都有一个关联的文件模式，用来指出如何使用文件。
 
-![8-4](Image/8-4.png)
+![8-4](Images/8-4.png)
 
 - 只能对`ofstream`或`fstream`对象设定`out`模式。
 - 只能对`ifstream`或`fstream`对象设定`in`模式。
@@ -165,7 +165,7 @@ out.close();
 
 头文件*sstream*定义了三个类型来支持内存IO：`istringstream`从`string`读取数据，`ostringstream`向`string`写入数据，`stringstream`可以同时读写`string`的数据。
 
-![8-5](Image/8-5.png)
+![8-5](Images/8-5.png)
 
 ### 使用istringstream（Using an istringstream）
 

@@ -20,7 +20,7 @@ using std::cout;
 
 初始化`string`的方式：
 
-![3-1](Image/3-1.png)
+![3-1](Images/3-1.png)
 
 如果使用等号初始化一个变量，实际上执行的是拷贝初始化（copy initialization），编译器把等号右侧的初始值拷贝到新创建的对象中去。如果不使用等号，则执行的是直接初始化（direct initialization）。 
 
@@ -28,7 +28,7 @@ using std::cout;
 
 `string`的操作：
 
-![3-2](Image/3-2.png)
+![3-2](Images/3-2.png)
 
 在执行读取操作时，`string`对象会自动忽略开头的空白（空格符、换行符、制表符等）并从第一个真正的字符开始读取，直到遇见下一处空白为止。
 
@@ -52,7 +52,7 @@ string s6 = s1 + ", " + "world";    // ok: each + has a string operand
 
 头文件*cctype*中的字符操作函数：
 
-![3-3](Image/3-3.png)
+![3-3](Images/3-3.png)
 
 建议使用C++版本的C标准库头文件。C语言中名称为*name.h*的头文件，在C++中则被命名为*cname*。
 
@@ -94,7 +94,7 @@ C++标准并不要求标准库检测下标是否合法。编程时可以把下�
 
 初始化`vector`对象的方法：
 
-![3-4](Image/3-4.png)
+![3-4](Images/3-4.png)
 
 初始化`vector`对象时如果使用圆括号，可以说提供的值是用来构造（construct）`vector`对象的；如果使用的是花括号，则是在列表初始化（list initialize）该`vector`对象。
 
@@ -117,7 +117,7 @@ for (int i = 0; i != 100; ++i)
 
 `vector`支持的操作：
 
-![3-5](Image/3-5.png)
+![3-5](Images/3-5.png)
 
 `size`函数返回`vector`对象中元素的个数，返回值是由`vector`定义的`size_type`类型。`vector`对象的类型包含其中元素的类型。 
 
@@ -154,7 +154,7 @@ auto b = ivec.begin(), e = ivec.end();    // b and e have the same type
 
 标准容器迭代器的运算符：
 
-![3-6](Image/3-6.png)
+![3-6](Images/3-6.png)
 
 因为`end`返回的迭代器并不实际指向某个元素，所以不能对其进行递增或者解引用的操作。
 
@@ -179,7 +179,7 @@ C++11新增了`cbegin`和`cend`函数，不论`vector`或`string`对象是否为
 
 `vector`和`string`迭代器支持的操作：
 
-![3-7](Image/3-7.png)
+![3-7](Images/3-7.png)
 
 `difference_type`类型用来表示两个迭代器间的距离，这是一种带符号整数类型。 
 
@@ -246,7 +246,7 @@ string *p2 = nums;      // equivalent to p2 = &nums[0]
 
 一维数组寻址公式：
 
-![3-8](Image/3-8.png)
+![3-8](Images/3-8.png)
 
 当使用数组作为一个`auto`变量的初始值时，推断得到的类型是指针而非数组。但`decltype`关键字不会发生这种转换，直接返回数组类型。 
 
@@ -281,7 +281,7 @@ C++标准支持C风格字符串，但是最好不要在C++程序中使用它们�
 
 C风格字符串的函数：
 
-![3-9](Image/3-9.png)
+![3-9](Images/3-9.png)
 
 C风格字符串函数不负责验证其参数的正确性，传入此类函数的指针必须指向以空字符作为结尾的数组。
 
@@ -344,7 +344,7 @@ int (&row)[4] = ia[1];  // binds row to the second four-element array in ia
 
 多维数组寻址公式：
 
-![3-10](Image/3-10.png)
+![3-10](Images/3-10.png)
 
 使用范围`for`语句处理多维数组时，为了避免数组被自动转换成指针，语句中的外层循环控制变量必须声明成引用类型。 
 

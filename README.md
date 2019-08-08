@@ -24,7 +24,7 @@
 
 [第8章 IO库](https://github.com/czs108/Cpp-Primer-5th-Note-CN/tree/master/Chapter-8%20The%20IO%20Library)
 
-[第9章 顺序容器](https://github.com/czs108/Cpp-Primer-5th-Note-CN/tree/master/Chapter-9%20%20Sequential%20Containers)
+[第9章 顺序容器](https://github.com/czs108/Cpp-Primer-5th-Note-CN/tree/master/Chapter-9%20Sequential%20Containers)
 
 [第10章 泛型算法](https://github.com/czs108/Cpp-Primer-5th-Note-CN/tree/master/Chapter-10%20Generic%20Algorithms)
 
